@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>Figuration Slider</title>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Figuration CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/figuration@4.0.0-alpha.1/dist/css/figuration.min.css" integrity="sha384-qC3Vd8Ump89qtZ5Ll6PSveWCBLJIedyOHcy3hgoMiCT22250U1rT7UPIvdTLVRjL" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.10.0/styles/default.css" integrity="sha256-mNltWbafG11uxOqo4sLGiAwqhJJT7wgmnigR64D7PYo=" crossorigin="anonymous">
+<link rel="stylesheet" href="../dist/css/figuration-slider.css">
+
+<!-- jQuery and Figuration JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/figuration@4.0.0-alpha.1/dist/js/figuration.min.js" integrity="sha384-4YJ+nmEMuJ6m2VHwZA/FFcSvSMSRO9zhuH2oDi3eo926fVlZo6zNJ24id9nCpaJ7" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs@9.10.0/highlight.pack.min.js" integrity="sha256-UDHqnY7+QpaXoYU8KuFdTBl662JDV5ssTlLAV34tlu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+
+<h1 class="cf-title" id="content">Figuration Slider</h1>
+
+<p>Slider is a robust replacement for the HTML5 element <code class="highlighter-rouge">&lt;input type="range"&gt;</code> with the addition of being able to be used for ranged/multi-thumb input.</p>
+
+<div class="cf-callout cf-callout-info cf-callout-dep">
+<p class="h5">Widget Dependencies</p>
+
+<p>Slider requires the following:</p>
+
+<ul>
+  <li><a href="/widgets/drag/">Drag widget</a> for drag functionality.</li>
+</ul>
+</div>
+
+<h2 class="no_toc" id="contents">Contents</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#examples" id="markdown-toc-examples">Examples</a>    <ul>
+      <li><a href="#single-slider" id="markdown-toc-single-slider">Single Slider</a></li>
+      <li><a href="#ranged-slider" id="markdown-toc-ranged-slider">Ranged Slider</a></li>
+      <li><a href="#vertical-slider" id="markdown-toc-vertical-slider">Vertical Slider</a></li>
+      <li><a href="#double-select-slider" id="markdown-toc-double-select-slider">Double Select Slider</a></li>
+    </ul>
+  </li>
+  <li><a href="#usage" id="markdown-toc-usage">Usage</a>    <ul>
+      <li><a href="#via-data-attributes" id="markdown-toc-via-data-attributes">Via Data Attributes</a></li>
+      <li><a href="#via-javascript" id="markdown-toc-via-javascript">Via JavaScript</a></li>
+      <li><a href="#options" id="markdown-toc-options">Options</a></li>
+      <li><a href="#methods" id="markdown-toc-methods">Methods</a></li>
+      <li><a href="#events" id="markdown-toc-events">Events</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="single-slider">Single Slider</h3>
+
+<div class="cf-example">
+<span data-cfw="slider" data-cfw-slider-min="0" data-cfw-slider-max="100">
+    <label>Value <input type="text" value="50" /></label>
+</span>
+</div>
+
+<pre class="html"><code>
+&lt;span data-cfw="slider" data-cfw-slider-min="0" data-cfw-slider-max="100"&gt;
+    &lt;label&gt;Value &lt;input type="text" value="50" /&gt;&lt;/label&gt;
+&lt;/span&gt;
+</code></pre>
+
+<h3 id="ranged-slider">Ranged Slider</h3>
+
+<p>When using a ranged slider, the thumbs/handles are constrained by the value of the other thumb/handle per the <a href="https://www.w3.org/TR/wai-aria-practices/#slidertwothumb">WAI-ARIA 1.0 specifications for multi-thumb sliders</a>.</p>
+
+<div class="cf-example">
+<span data-cfw="slider" data-cfw-slider-min="-50" data-cfw-slider-max="50" data-cfw-slider-step="5">
+    <label>Min <input type="text" value="-25" /></label>
+    <label><input type="text" value="25" /> Max</label>
+</span>
+</div>
+
+<pre class="html"><code>
+&lt;span data-cfw="slider" data-cfw-slider-min="-50" data-cfw-slider-max="50" data-cfw-slider-step="5"&gt;
+    &lt;label&gt;Min &lt;input type="text" value="-25" /&gt;&lt;/label&gt;
+    &lt;label&gt;&lt;input type="text" value="25" /&gt; Max&lt;/label&gt;
+&lt;/span&gt;
+</code></pre>
+
+<h3 id="vertical-slider">Vertical Slider</h3>
+
+<p>This vertical slider has also been reversed so that larger values are at the top.</p>
+
+<div class="cf-example">
+<span data-cfw="slider" data-cfw-slider-min="0" data-cfw-slider-max="5" data-cfw-slider-vertical="true" data-cfw-slider-reversed="true">
+    <label for="slider1">Rating</label>
+    <select id="slider1">
+        <option value="0">0</option>
+        <option value="1" selected="">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+</span>
+</div>
+
+<pre class="html"><code>
+&lt;span data-cfw="slider" data-cfw-slider-min="0" data-cfw-slider-max="5" data-cfw-slider-vertical="true" data-cfw-slider-reversed="true"&gt;
+    &lt;label for="slider1"&gt;Rating&lt;/label&gt;
+    &lt;select id="slider1"&gt;
+        &lt;option value="0"&gt;0&lt;/option&gt;
+        &lt;option value="1" selected&gt;1&lt;/option&gt;
+        &lt;option value="2"&gt;2&lt;/option&gt;
+        &lt;option value="3"&gt;3&lt;/option&gt;
+        &lt;option value="4"&gt;4&lt;/option&gt;
+        &lt;option value="5"&gt;5&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/span&gt;
+</code></pre>
+
+<h3 id="double-select-slider">Double Select Slider</h3>
+
+<div class="cf-example">
+<span id="slider2">
+    <label for="slider2_0">Start</label>
+    <select id="slider2_0">
+        <option value="12:00 am">12:00 am</option>
+        <option value="1:00 am">1:00 am</option>
+        <option value="2:00 am">2:00 am</option>
+        <option value="3:00 am">3:00 am</option>
+        <option value="4:00 am">4:00 am</option>
+        <option value="5:00 am" selected="">5:00 am</option>
+        <option value="6:00 am">6:00 am</option>
+        <option value="7:00 am">7:00 am</option>
+        <option value="8:00 am">8:00 am</option>
+        <option value="9:00 am">9:00 am</option>
+        <option value="10:00 am">10:00 am</option>
+        <option value="11:00 am">11:00 am</option>
+        <option value="12:00 pm">12:00 pm</option>
+        <option value="1:00 pm">1:00 pm</option>
+        <option value="2:00 pm">2:00 pm</option>
+        <option value="3:00 pm">3:00 pm</option>
+        <option value="4:00 pm">4:00 pm</option>
+        <option value="5:00 pm">5:00 pm</option>
+        <option value="6:00 pm">6:00 pm</option>
+        <option value="7:00 pm">7:00 pm</option>
+        <option value="8:00 pm">8:00 pm</option>
+        <option value="9:00 pm">9:00 pm</option>
+        <option value="10:00 pm">10:00 pm</option>
+        <option value="11:00 pm">11:00 pm</option>
+        <option value="12:00 am">12:00 am</option>
+    </select>
+    <select id="slider2_1">
+        <option value="12:00 am">12:00 am</option>
+        <option value="1:00 am">1:00 am</option>
+        <option value="2:00 am">2:00 am</option>
+        <option value="3:00 am">3:00 am</option>
+        <option value="4:00 am">4:00 am</option>
+        <option value="5:00 am">5:00 am</option>
+        <option value="6:00 am">6:00 am</option>
+        <option value="7:00 am">7:00 am</option>
+        <option value="8:00 am">8:00 am</option>
+        <option value="9:00 am">9:00 am</option>
+        <option value="10:00 am">10:00 am</option>
+        <option value="11:00 am">11:00 am</option>
+        <option value="12:00 pm" selected="">12:00 pm</option>
+        <option value="1:00 pm">1:00 pm</option>
+        <option value="2:00 pm">2:00 pm</option>
+        <option value="3:00 pm">3:00 pm</option>
+        <option value="4:00 pm">4:00 pm</option>
+        <option value="5:00 pm">5:00 pm</option>
+        <option value="6:00 pm">6:00 pm</option>
+        <option value="7:00 pm">7:00 pm</option>
+        <option value="8:00 pm">8:00 pm</option>
+        <option value="9:00 pm">9:00 pm</option>
+        <option value="10:00 pm">10:00 pm</option>
+        <option value="11:00 pm">11:00 pm</option>
+        <option value="12:00 am">12:00 am</option>
+    </select>
+    <label id="slider2_1_Label" for="slider2_1">End</label>
+</span>
+<script>
+$('#slider2').CFW_Slider({
+    min : 0,
+    max : 24
+});
+</script>
+</div>
+
+<pre class="html"><code>
+&lt;span id="slider2"&gt;
+    &lt;label for="slider2_0"&gt;Start&lt;/label&gt;
+    &lt;select id="slider2_0"&gt;
+        &lt;option value="12:00 am"&gt;12:00 am&lt;/option&gt;
+        &lt;option value="1:00 am"&gt;1:00 am&lt;/option&gt;
+        &lt;option value="2:00 am"&gt;2:00 am&lt;/option&gt;
+        &lt;option value="3:00 am"&gt;3:00 am&lt;/option&gt;
+        &lt;option value="4:00 am"&gt;4:00 am&lt;/option&gt;
+        &lt;option value="5:00 am" selected&gt;5:00 am&lt;/option&gt;
+        &lt;option value="6:00 am"&gt;6:00 am&lt;/option&gt;
+        &lt;option value="7:00 am"&gt;7:00 am&lt;/option&gt;
+        &lt;option value="8:00 am"&gt;8:00 am&lt;/option&gt;
+        &lt;option value="9:00 am"&gt;9:00 am&lt;/option&gt;
+        &lt;option value="10:00 am"&gt;10:00 am&lt;/option&gt;
+        &lt;option value="11:00 am"&gt;11:00 am&lt;/option&gt;
+        &lt;option value="12:00 pm"&gt;12:00 pm&lt;/option&gt;
+        &lt;option value="1:00 pm"&gt;1:00 pm&lt;/option&gt;
+        &lt;option value="2:00 pm"&gt;2:00 pm&lt;/option&gt;
+        &lt;option value="3:00 pm"&gt;3:00 pm&lt;/option&gt;
+        &lt;option value="4:00 pm"&gt;4:00 pm&lt;/option&gt;
+        &lt;option value="5:00 pm"&gt;5:00 pm&lt;/option&gt;
+        &lt;option value="6:00 pm"&gt;6:00 pm&lt;/option&gt;
+        &lt;option value="7:00 pm"&gt;7:00 pm&lt;/option&gt;
+        &lt;option value="8:00 pm"&gt;8:00 pm&lt;/option&gt;
+        &lt;option value="9:00 pm"&gt;9:00 pm&lt;/option&gt;
+        &lt;option value="10:00 pm"&gt;10:00 pm&lt;/option&gt;
+        &lt;option value="11:00 pm"&gt;11:00 pm&lt;/option&gt;
+        &lt;option value="12:00 am"&gt;12:00 am&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;select id="slider2_1"&gt;
+        &lt;option value="12:00 am"&gt;12:00 am&lt;/option&gt;
+        &lt;option value="1:00 am"&gt;1:00 am&lt;/option&gt;
+        &lt;option value="2:00 am"&gt;2:00 am&lt;/option&gt;
+        &lt;option value="3:00 am"&gt;3:00 am&lt;/option&gt;
+        &lt;option value="4:00 am"&gt;4:00 am&lt;/option&gt;
+        &lt;option value="5:00 am"&gt;5:00 am&lt;/option&gt;
+        &lt;option value="6:00 am"&gt;6:00 am&lt;/option&gt;
+        &lt;option value="7:00 am"&gt;7:00 am&lt;/option&gt;
+        &lt;option value="8:00 am"&gt;8:00 am&lt;/option&gt;
+        &lt;option value="9:00 am"&gt;9:00 am&lt;/option&gt;
+        &lt;option value="10:00 am"&gt;10:00 am&lt;/option&gt;
+        &lt;option value="11:00 am"&gt;11:00 am&lt;/option&gt;
+        &lt;option value="12:00 pm" selected&gt;12:00 pm&lt;/option&gt;
+        &lt;option value="1:00 pm"&gt;1:00 pm&lt;/option&gt;
+        &lt;option value="2:00 pm"&gt;2:00 pm&lt;/option&gt;
+        &lt;option value="3:00 pm"&gt;3:00 pm&lt;/option&gt;
+        &lt;option value="4:00 pm"&gt;4:00 pm&lt;/option&gt;
+        &lt;option value="5:00 pm"&gt;5:00 pm&lt;/option&gt;
+        &lt;option value="6:00 pm"&gt;6:00 pm&lt;/option&gt;
+        &lt;option value="7:00 pm"&gt;7:00 pm&lt;/option&gt;
+        &lt;option value="8:00 pm"&gt;8:00 pm&lt;/option&gt;
+        &lt;option value="9:00 pm"&gt;9:00 pm&lt;/option&gt;
+        &lt;option value="10:00 pm"&gt;10:00 pm&lt;/option&gt;
+        &lt;option value="11:00 pm"&gt;11:00 pm&lt;/option&gt;
+        &lt;option value="12:00 am"&gt;12:00 am&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;label id="slider2_1_Label" for="slider2_1"&gt;End&lt;/label&gt;
+&lt;/span&gt;
+&lt;script>
+$('#slider2').CFW_Slider({
+    min : 0,
+    max : 24
+});
+&lt;/script>
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+
+<p>The slider will determine the number of thumbs based on the number on inputs found within the specified container, up to a maximum of two thumbs.</p>
+
+<p>If more than two inputs are found, the slider will use the first input found for the first thumb, and the last input found for the second thumb.</p>
+
+<p>If the need to read the values as determined by the slider, the data variable on the container can be accessed as follows.</p>
+
+<p>Note: If using <code class="highlighter-rouge">&lt;select&gt;</code> elements, the value is the internal tracking value, not the actual value of the input. In this case, the value should match the index of the selected item.</p>
+
+<pre class="js"><code>
+$('mySlider').data('cfw.slider')['val0']; // First thumb value
+$('mySlider').data('cfw.slider')['val1']; // Second thumb value
+</code></pre>
+
+<h3 id="via-data-attributes">Via Data Attributes</h3>
+
+<p>The basic slider will need to have a container with an <code class="highlighter-rouge">&lt;input&gt;</code> element within it.  On the container specify the <code class="highlighter-rouge">data-cfw="slider"</code> attribute, and at minimum the attributes of <code class="highlighter-rouge">data-cfw-slider-min</code> and <code class="highlighter-rouge">data-cfw-slider-max</code> with integer values.</p>
+
+<h3 id="via-javascript">Via JavaScript</h3>
+
+<p>Call the widget manually with options:</p>
+
+<pre class="js"><code>
+$('#mySlider').CFW_Slider({
+    min : 0,
+    max : 24
+});
+</code></pre>
+
+<h3 id="options">Options</h3>
+
+<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code class="highlighter-rouge">data-cfw-slider</code>, as in <code class="highlighter-rouge">data-cfw-slider-step=5</code>.</p>
+
+<div class="table-scroll">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th style="width: 100px;">Name</th>
+                <th style="width: 50px;">Type</th>
+                <th style="width: 50px;">Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>min</td>
+                <td>integer | float</td>
+                <td>null</td>
+                <td>Numerical value for the minimum values in the range</td>
+            </tr>
+            <tr>
+                <td>max</td>
+                <td>integer | float</td>
+                <td>null</td>
+                <td>Numerical value for the maximum values in the range.</td>
+            </tr>
+            <tr>
+                <td>step</td>
+                <td>integer | float</td>
+                <td>1</td>
+                <td>The minimum movement size.  This value must be a positive, non-zero value.</td>
+            </tr>
+            <tr>
+                <td>chunk</td>
+                <td>integer | float</td>
+                <td>null</td>
+                <td>
+                    <p>The 'large step' size used for PgUp/PgDown keyboard navigation.</p>
+                    <p>If not defined, the chunk will be auto determined based on the size of the step and the range.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>vertical</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>The orientation of the slider in a horizontal (default), or vertical layout.</td>
+            </tr>
+            <tr>
+                <td>reversed</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>If the selection, thumbs, and movement should all be revsersed.</td>
+            </tr>
+            <tr>
+                <td>enabled</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>If the slider is enabled or disabled at creation.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3 id="methods">Methods</h3>
+
+<h4 class="no_toc" id="cfw_slideroptions"><code class="highlighter-rouge">.CFW_Slider(options)</code></h4>
+
+<p>Activates the content as a slider element. Accepts an optional options <code class="highlighter-rouge">object</code>.</p>
+
+<pre class="js"><code>
+$('#mySlider').CFW_Slider({
+    min: 0,
+    max: 100
+});
+</code></pre>
+
+<h4 class="no_toc" id="cfw_sliderenable"><code class="highlighter-rouge">.CFW_Slider('enable')</code></h4>
+
+<p>Enable the slider.</p>
+
+<h4 class="no_toc" id="cfw_sliderdisable"><code class="highlighter-rouge">.CFW_Slider('disable')</code></h4>
+
+<p>Disable the slider.</p>
+
+<h4 class="no_toc" id="cfw_sliderdispose"><code class="highlighter-rouge">.CFW_Slider('dispose')</code></h4>
+
+<p>Detach the listen events and data for the slider, and remove the slider controls from the DOM.</p>
+
+<h3 id="events">Events</h3>
+
+<p>Event callbacks happen on the created slider element.</p>
+
+<div class="table-scroll">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th style="width: 150px;">Event Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>init.cfw.slider</td>
+                <td>This event fires after the slider item is initialized.</td>
+            </tr>
+            <tr>
+                <td>slid.cfw.slider</td>
+                <td>This event is fired when a thumb item is manually moved.</td>
+            </tr>
+            <tr>
+                <td>changed.cfw.slider</td>
+                <td>This event is fired when one of the associated input values has been changed.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<pre class="js"><code>
+$('#mySlider').on('slid.cfw.slider', function () {
+  // do something...
+});
+</code></pre>
+
+</div>
+
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="../dist/js/figuration-slider.js"></script>
+</body>
+</html>
