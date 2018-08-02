@@ -15,8 +15,5 @@ Features:
 - Supports ranged, or mutli-thumb, value selection.
 - When using a ranged slider, the thumbs/handles are constrained by the value of the other thumb/handle.
 
-- Input automatically copies underlying table cell styling.
-- Uses minimal additional CSS to extend on [Figuration's layout for tables](http://figuration.org/content/tables/).
-
 Demo and some docs:
 - [https://cast-org.github.io/figuration-table/demo/](https://cast-org.github.io/figuration-slider/demo/)
